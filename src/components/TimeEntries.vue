@@ -63,3 +63,70 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  // es5 写法
+  // data: function(){
+  //   return {
+  //     xxxx
+  //   }
+  // }
+  // 这里代表vue的data对象，通过动态获取的
+  data() {
+    const existingEntry = {
+      user: {
+        firstName: 'Ryan',
+        lastName: 'Chenkie',
+        email: 'ryanchenkie@gmail.com',
+        image: 'https://avatars3.githubusercontent.com/u/8489343?v=3&s=460',
+      },
+      comment: 'First time entry',
+      totalTime: 1.5,
+      date: '2016-04-08',
+    };
+
+    return {
+      // 初始化返回一个数组，里面为一个timeEntries对象
+      timeEntries: [existingEntry],
+    };
+  },
+  methods: {
+    deleteTimeEntry(timeEntry) {
+      // 获取点击的时间对象的索引值
+      const index = this.timeEntries.indexOf(timeEntry);
+      if (window.confirm('Are you sure you want to delete this time entry?')) {
+        this.timeEntries.splice(index, 1);
+        // 派发一个deleteTime事件，首先在实例上触发它，然后沿着父链向上冒泡在触发一个监听器后停止，除非它返回 true。附加参数都会传给监听器回调。
+        this.$dispatch('deleteTime', timeEntry);
+      }
+    },
+  },
+  events: {
+    timeUpdate(timeEntry) {
+      this.timeEntries.push(timeEntry);
+      return true;
+    },
+  },
+};
+</script>
+
+<style>
+  .avatar {
+    height: 75px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .user-details {
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+    margin: -10px 0;
+  }
+  .time-block {
+    padding: 10px;
+  }
+  .comment-section {
+    padding: 20px;
+  }
+</style>
