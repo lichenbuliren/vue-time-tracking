@@ -79,16 +79,16 @@ export default {
         firstName: 'Ryan',
         lastName: 'Chenkie',
         email: 'ryanchenkie@gmail.com',
-        image: 'https://avatars3.githubusercontent.com/u/8489343?v=3&s=460',
+        image: 'https://avatars3.githubusercontent.com/u/8489343?v=3&s=460'
       },
       comment: 'First time entry',
       totalTime: 1.5,
-      date: '2016-04-08',
+      date: '2016-04-08'
     };
 
     return {
       // 初始化返回一个数组，里面为一个timeEntries对象
-      timeEntries: [existingEntry],
+      timeEntries: [existingEntry]
     };
   },
   methods: {
@@ -100,14 +100,14 @@ export default {
         // 派发一个deleteTime事件，首先在实例上触发它，然后沿着父链向上冒泡在触发一个监听器后停止，除非它返回 true。附加参数都会传给监听器回调。
         this.$dispatch('deleteTime', timeEntry);
       }
-    },
+    }
   },
   events: {
     timeUpdate(timeEntry) {
       this.timeEntries.push(timeEntry);
       return true;
-    },
-  },
+    }
+  }
 };
 </script>
 

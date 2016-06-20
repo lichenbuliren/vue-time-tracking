@@ -15,20 +15,20 @@ const router = new VueRouter();
 
 router.map({
   '/home': {
-    component: Home,
+    component: Home
   },
   'time-entries': {
     component: TimeEntries,
     subRoutes: {
       '/log-time': {
-        component: LogTime,
-      },
-    },
-  },
+        component: LogTime
+      }
+    }
+  }
 });
 
 router.redirect({
-  '*': '/home',
+  '*': '/home'
 });
 
 router.start(App, '#app');

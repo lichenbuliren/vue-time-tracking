@@ -14,10 +14,36 @@
     </nav>
 
     <div class="container">
-      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <sidebar :time="totalTime"></sidebar>
+      </div>
       <div class="col-sm-9">
         <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+  import Sidebar from './components/Sidebar.vue';
+
+  export default {
+    components: {
+      sidebar: Sidebar
+    },
+    data() {
+      return {
+        // 设置默认值
+        totalTime: 1.5
+      };
+    },
+    events: {
+      timeUpdate(timeEntry) {
+        this.totalTime += parseFloat(timeEntry.totalTime);
+      },
+      deleteTime(timeEntry) {
+        this.totalTime -= parseFloat(timeEntry.totalTime);
+      }
+    }
+  };
+</script>

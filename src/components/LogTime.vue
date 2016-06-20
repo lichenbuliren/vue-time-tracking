@@ -4,17 +4,17 @@
       <div class="col-sm-6">
         <label>Date</label>
         <input type="date"
-          class="form-control" 
+          class="form-control"
           v-model="timeEntry.date"
-          placeholder="Date" 
+          placeholder="Date"
         />
       </div>
       <div class="col-sm-6">
         <label>Hours</label>
         <input type="number"
-          class="form-control" 
+          class="form-control"
           v-model="timeEntry.totalTime"
-          placeholder="Hours" 
+          placeholder="Hours"
         />
       </div>
     </div>
@@ -22,9 +22,9 @@
       <div class="col-sm-12">
         <label>Comment</label>
         <input type="text"
-          class="form-control" 
+          class="form-control"
           v-model="timeEntry.comment"
-          placeholder="Comment" 
+          placeholder="Comment"
         />
       </div>
     </div>
@@ -43,9 +43,9 @@ export default {
           firstName: 'Ryan',
           lastName: 'Chenkie',
           email: 'ryanchenkie@gmail.com',
-          image: 'https://avatars3.githubusercontent.com/u/8489343?v=3&s=460',
-        },
-      },
+          image: 'https://avatars3.githubusercontent.com/u/8489343?v=3&s=460'
+        }
+      }
     };
   },
   methods: {
@@ -54,7 +54,7 @@ export default {
       // 派发一个事件，触发父级的timeUpdate事件
       this.$dispatch('timeUpdate', this.timeEntry);
       this.timeEntry = {};
-    },
-  },
+    }
+  }
 };
 </script>
