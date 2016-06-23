@@ -26,24 +26,32 @@
 
 <script>
   import Sidebar from './components/Sidebar.vue';
+  import store from './vuex/store';
 
   export default {
     components: {
       sidebar: Sidebar
     },
-    data() {
-      return {
-        // 设置默认值
-        totalTime: 1.5
-      };
-    },
-    events: {
-      timeUpdate(timeEntry) {
-        this.totalTime += parseFloat(timeEntry.totalTime);
-      },
-      deleteTime(timeEntry) {
-        this.totalTime -= parseFloat(timeEntry.totalTime);
+    vuex: {
+      getters: {
+        totalTime: state => state.total
       }
-    }
+    },
+    // data() {
+    //   return {
+    //     // 设置默认值
+    //     totalTime: 1.5
+    //   };
+    // },
+    // events: {
+    //   timeUpdate(timeEntry) {
+    //     this.totalTime += parseFloat(timeEntry.totalTime);
+    //   },
+    //   deleteTime(timeEntry) {
+    //     this.totalTime -= parseFloat(timeEntry.totalTime);
+    //   }
+    // },
+    // 在根组件加入 store ，让它的子组件和 store 连接
+    store
   };
 </script>

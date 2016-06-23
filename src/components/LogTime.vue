@@ -28,13 +28,14 @@
         />
       </div>
     </div>
-    <button class="btn btn-primary" @click="save()">Save</button>
+    <button class="btn btn-primary" @click="addTimeEntry(timeEntry)">Save</button>
     <button v-link="'/time-entries'" class="btn btn-danger">Cancel</button>
     <hr>
   </div>
 </template>
 
 <script>
+import { addTimeEntry } from '../vuex/actions';
 export default {
   data() {
     return {
@@ -48,13 +49,20 @@ export default {
       }
     };
   },
-  methods: {
-    save() {
-      // const timeEntry = this.timeEntry;
-      // 派发一个事件，触发父级的timeUpdate事件
-      this.$dispatch('timeUpdate', this.timeEntry);
-      this.timeEntry = {};
+  vuex: {
+    actions: {
+      addTimeEntry
     }
   }
+  // ,
+  // methods: {
+  //   save() {
+  //     // const timeEntry = this.timeEntry;
+  //     // 派发一个事件，触发父级的timeUpdate事件
+  //     this.$dispatch('timeUpdate', this.timeEntry);
+  //     this.addTimeEntry(this.timeEntry);
+  //     this.timeEntry = {};
+  //   }
+  // }
 };
 </script>
