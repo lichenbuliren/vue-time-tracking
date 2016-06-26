@@ -54,15 +54,5 @@ export default {
       addTimeEntry
     }
   }
-  // ,
-  // methods: {
-  //   save() {
-  //     // const timeEntry = this.timeEntry;
-  //     // 派发一个事件，触发父级的timeUpdate事件
-  //     this.$dispatch('timeUpdate', this.timeEntry);
-  //     this.addTimeEntry(this.timeEntry);
-  //     this.timeEntry = {};
-  //   }
-  // }
 };
 </script>

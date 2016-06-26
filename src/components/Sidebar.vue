@@ -5,13 +5,17 @@
     </div>
 
     <div class="panel-body">
-      <h1 class="text-center">{{time}}</h1>
+      <h1 class="text-center">{{ totalTime }}</h1>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['time']
+    vuex: {
+      getters: {
+        totalTime: state => state.totalTime
+      }
+    }
   };
 </script>

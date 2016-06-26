@@ -15,16 +15,18 @@ const initEntries = {
   date: '2016-04-08'
 };
 
+const initTotalTime = initEntries.totalTime;
+
 // 创建一个对象存储一系列我们接下来要写的 mutation 函数
 const mutations = {
   // TODO: 放置我们的状态变更函数
   ADD(state, timeEntry) {
+    state.totalTime += parseFloat(timeEntry.totalTime);
     state.timeEntries.push(timeEntry);
-    state.totalTime += timeEntry.totalTime;
   },
   DELETE(state, timeEntry) {
+    state.totalTime -= parseFloat(timeEntry.totalTime);
     state.timeEntries.splice(timeEntry, 1);
-    state.totalTime -= timeEntry.totalTime;
   }
 };
 
@@ -34,7 +36,7 @@ export default new Vuex.Store({
     // TODO : 放置初始状态
     timeEntries: [initEntries],
 
-    totalTime: initEntries.totalTime
+    totalTime: initTotalTime
   },
   mutations
 });

@@ -15,7 +15,7 @@
 
     <div class="container">
       <div class="col-sm-3">
-        <sidebar :time="totalTime"></sidebar>
+        <Sidebar></Sidebar>
       </div>
       <div class="col-sm-9">
         <router-view></router-view>
@@ -27,31 +27,12 @@
 <script>
   import Sidebar from './components/Sidebar.vue';
   import store from './vuex/store';
+  // import { getTotalTime } from './vuex/getters';
 
   export default {
     components: {
-      sidebar: Sidebar
+      Sidebar
     },
-    vuex: {
-      getters: {
-        totalTime: state => state.total
-      }
-    },
-    // data() {
-    //   return {
-    //     // 设置默认值
-    //     totalTime: 1.5
-    //   };
-    // },
-    // events: {
-    //   timeUpdate(timeEntry) {
-    //     this.totalTime += parseFloat(timeEntry.totalTime);
-    //   },
-    //   deleteTime(timeEntry) {
-    //     this.totalTime -= parseFloat(timeEntry.totalTime);
-    //   }
-    // },
-    // 在根组件加入 store ，让它的子组件和 store 连接
     store
   };
 </script>
