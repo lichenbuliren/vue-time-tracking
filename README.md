@@ -1,6 +1,6 @@
 # vue-time-tracking
 
-#### 原文地址：[https://scotch.io/tutorials/build-a-single-page-time-tracking-app-with-vue-js-part-ii](https://www.baidu.com)
+#### 原文地址：[https://scotch.io/tutorials/build-a-single-page-time-tracking-app-with-vue-js-part-ii](https://scotch.io/tutorials/build-a-single-page-time-tracking-app-with-vue-js-part-ii)
 
 > 主要内容点：
 
